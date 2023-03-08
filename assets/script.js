@@ -17,8 +17,19 @@ const slides = [
 	}
 ]
 
-const droite = document.querySelector('.arrow_right');
-const gauche = document.querySelector('.arrow_left');
+const droite = document.querySelector(".arrow_right");
+const gauche = document.querySelector(".arrow_left");
+const nbrSlide = slides.length
 
-function 
+let i = 0;
 
+function next() {
+	for (let i = 0; slides[i] < slides.length; i++ ) {
+		console.log(i)
+	}
+}
+
+
+
+droite.addEventListener("click", next)
+gauche.addEventListener("click", next)
