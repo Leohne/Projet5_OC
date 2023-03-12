@@ -30,23 +30,7 @@ let count = 0;
 	function recup(){
 		imgBanner.src = `./assets/images/slideshow/${slides[count].image}`
 		blaBla.innerHTML = `${slides[count].tagLine}`
-		console.log(blaBla.innerHTML)
 	}
-
-	function nvxDot(){
-		const dot = document.querySelector(".dots")
-		let crea = document.createElement('div')
-		dot.appendChild(crea)		
-	}
-	nvxDot()
-
-	function sndDot(){
-
-		console.log(x)		
-	} 
-	sndDot()
-
-	
 
 	function next(){ 
 	//count = count + number; /*(ou count += number)*/
@@ -57,7 +41,7 @@ let count = 0;
 	}
 }
 
-function before(){ 
+	function before(){ 
 	if(count === 0 ){
 		count = nbrSlide -1;
 	} else {
@@ -65,11 +49,27 @@ function before(){
 	}
 }
 
+function nvxDot(){
+	const dot = document.querySelector(".dots")
+	let crea = document.createElement('div')
+	dot.appendChild(crea)
+	crea.classList.add("dot")		
+}
+nvxDot()
+
+function sndDot(){
+	Slides.forEach(element => {
+		(i === count; i < nbrSlide -1; nvxDot() )
+	});
+	console.log(i)
+}
+
+sndDot()
+
 droite.addEventListener("click", (e) => {
-	next(), recup(), sndDot
-	console.log(count)
+	next(), recup()
 })
+
 gauche.addEventListener("click", (e) => {
 	before(), recup()
-	console.log(count)
 })
