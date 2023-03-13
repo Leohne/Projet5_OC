@@ -26,22 +26,29 @@ const imgBanner = document.querySelector(".banner-img")
 const blaBla = document.querySelector('#banner > p')
 
 let count = 0;
+
+droite.addEventListener("click", (e) => {
+	next(), recup(), add(), removeR()
+})
+
+gauche.addEventListener("click", (e) => {
+	before(), recup(), add(), removeL()
+})
 	 
 	function recup(){
 		imgBanner.src = `./assets/images/slideshow/${slides[count].image}`
 		blaBla.innerHTML = `${slides[count].tagLine}`
 	}
 
-	function next(){ 
-	//count = count + number; /*(ou count += number)*/
-	if(count < nbrSlide -1){
+	function next(){
+		if(count < nbrSlide -1){
 		count++;	
-	} else {
+		} else {
 		count = 0;
-	}
+	}	
 }
 
-	function before(){ 
+	function before(){
 	if(count === 0 ){
 		count = nbrSlide -1;
 	} else {
@@ -55,21 +62,37 @@ function nvxDot(){
 	dot.appendChild(crea)
 	crea.classList.add("dot")		
 }
-nvxDot()
 
 function sndDot(){
-	Slides.forEach(element => {
-		(i === count; i < nbrSlide -1; nvxDot() )
-	});
-	console.log(i)
+	slides.forEach(count => nvxDot())
 }
-
 sndDot()
 
-droite.addEventListener("click", (e) => {
-	next(), recup()
-})
+function add(){
+	const bullet = document.querySelectorAll(".dot");
+	let i = count;	
+	bullet[i].classList.add("dot_selected");
+}
 
-gauche.addEventListener("click", (e) => {
-	before(), recup()
-})
+function removeR(){
+	const bullet = document.querySelectorAll(".dot");
+	let i = count -1;
+	if(count === 0){
+		i = bullet.length -1;
+	} else {
+		i = count -1
+	}
+	bullet[i].classList.remove("dot_selected");
+}
+
+function removeL(){
+	const bullet = document.querySelectorAll(".dot");
+	let i = count +1;
+	if(count === 3){
+		i = 0;
+	} else {
+		i = count +1
+	}
+	bullet[i].classList.remove("dot_selected");
+	console.log(i)
+}
